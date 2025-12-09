@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "rows": 7,
+    "cols": 11,
+    "declared_size": null,
+    "rules": {}
+  },
+  "layout": [
+    [
+      "E",
+      "E",
+      "E",
+      "E",
+      "E",
+      "E",
+      "E",
+      "E",
+      "C",
+      "E",
+      "E"
+    ],
+    [
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "C",
+      "S",
+      "S"
+    ],
+    [
+      "S",
+      "S",
+      "W",
+      "W",
+      "S",
+      "S",
+      "S",
+      "W",
+      "W",
+      "S",
+      "S"
+    ],
+    [
+      "S",
+      "S",
+      "W",
+      "W",
+      "S",
+      "S",
+      "S",
+      "W",
+      "W",
+      "S",
+      "S"
+    ],
+    [
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S"
+    ],
+    [
+      "S",
+      "S",
+      "D",
+      "D",
+      "S",
+      "S",
+      "W",
+      "W",
+      "W",
+      "W",
+      "S"
+    ],
+    [
+      "S",
+      "S",
+      "D",
+      "D",
+      "S",
+      "S",
+      "W",
+      "W",
+      "W",
+      "W",
+      "S"
+    ]
+  ],
+  "validation": {
+    "is_valid": true,
+    "errors": [],
+    "warnings": [
+      "Column 8: Windows not evenly spaced vertically.",
+      "Column 9: Windows not evenly spaced vertically.",
+      "Asymmetry detected on Row 1.",
+      "Asymmetry detected on Row 2.",
+      "Asymmetry detected on Row 6.",
+      "Asymmetry detected on Row 7."
+    ]
+  }
+}
