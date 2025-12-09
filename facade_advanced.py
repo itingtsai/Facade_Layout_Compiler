@@ -710,7 +710,7 @@ if __name__ == "__main__":
     if args.test:
         run_test_suite()
     else:
-        # Default example
+        # facade_1
         source_code = """ 
         row 1: E E E E E E E E C E E 
         row 2: S S S S S S S S C S S 
