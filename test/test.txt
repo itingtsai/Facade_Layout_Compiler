@@ -1,0 +1,189 @@
+============================================================
+RUNNING TEST SUITE
+============================================================
+
+--- Test 1: Valid Symmetric Facade ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 5 rows
+✓ Grid size: 8x5
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✓ Validation PASSED
+
+[PHASE 4: CODE GENERATION]
+✓ JSON generated
+✓ SVG generated
+✓ Test 1 PASSED
+
+--- Test 2: Invalid - Door on Upper Floor ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 2 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✗ Validation FAILED:
+   [ERROR] Structural Violation: Door at column 2 does not reach ground floor (Row 2).
+✓ Test 2 PASSED
+
+--- Test 3: Invalid - Grid Size Mismatch ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 2 rows
+✓ Grid size: 4x2
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✗ Validation FAILED:
+   [ERROR] Grid size mismatch: expected 4 columns, got 3.
+✓ Test 3 PASSED
+
+--- Test 4: Valid with Window Spacing Rule ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 2 rows
+✓ Rules: {'min_window_spacing': '2'}
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✓ Validation PASSED
+
+[PHASE 4: CODE GENERATION]
+✓ JSON generated
+✓ SVG generated
+✓ Test 4 PASSED
+
+--- Test 5: Asymmetric Facade (Warning Only) ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 2 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✓ Validation PASSED
+   [WARN] Asymmetry detected on Row 1.
+
+[PHASE 4: CODE GENERATION]
+✓ JSON generated
+✓ SVG generated
+✓ Test 5 PASSED
+
+--- Test 6: Window Above Door (Warning Only) ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 2 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✓ Validation PASSED
+   [WARN] Design warning: Window at Row 1, Col 2 is directly above door at Row 2, Col 2.
+
+[PHASE 4: CODE GENERATION]
+✓ JSON generated
+✓ SVG generated
+✓ Test 6 PASSED
+
+--- Test 7: Invalid - Chimney Not From Top ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 3 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✗ Validation FAILED:
+   [ERROR] Structural Violation: Chimney at column 2 does not start from top row (Row 1).
+✓ Test 7 PASSED
+
+--- Test 8: Invalid - Chimney With Gap ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 3 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✗ Validation FAILED:
+   [ERROR] Structural Violation: Chimney at column 2 has a gap between Row 1 and Row 3.
+✓ Test 8 PASSED
+
+--- Test 9: Valid - Chimney From Top ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 3 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✓ Validation PASSED
+
+[PHASE 4: CODE GENERATION]
+✓ JSON generated
+✓ SVG generated
+✓ Test 9 PASSED
+
+--- Test 10: Invalid - Door With Gap ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 4 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✗ Validation FAILED:
+   [ERROR] Structural Violation: Door at column 2 has a gap between Row 2 and Row 4.
+✓ Test 10 PASSED
+
+--- Test 11: Valid - Multi-row Door ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 3 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✓ Validation PASSED
+
+[PHASE 4: CODE GENERATION]
+✓ JSON generated
+✓ SVG generated
+✓ Test 11 PASSED
+
+--- Test 12: Valid - Complex Facade ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 4 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✓ Validation PASSED
+
+[PHASE 4: CODE GENERATION]
+✓ JSON generated
+✓ SVG generated
+✓ Test 12 PASSED
+
+============================================================
+TEST RESULTS: 12 passed, 0 failed out of 12 total
+============================================================
