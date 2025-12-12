@@ -107,10 +107,10 @@ RUNNING TEST SUITE
 
 [PHASE 3: SEMANTIC ANALYSIS]
 ✗ Validation FAILED:
-   [ERROR] Structural Violation: Chimney at column 2 does not start from top row (Row 1).
+   [ERROR] Structural Violation: Chimney region at column 2 does not start from top row (Row 1).
 ✓ Test 7 PASSED
 
---- Test 8: Invalid - Chimney With Gap ---
+--- Test 8: Invalid - Chimney With Gap (Disconnected) ---
 ============================================================
 --- FACADE LAYOUT COMPILER ---
 ============================================================
@@ -120,7 +120,7 @@ RUNNING TEST SUITE
 
 [PHASE 3: SEMANTIC ANALYSIS]
 ✗ Validation FAILED:
-   [ERROR] Structural Violation: Chimney at column 2 has a gap between Row 1 and Row 3.
+   [ERROR] Structural Violation: Chimney region at column 2 does not start from top row (Row 1).
 ✓ Test 8 PASSED
 
 --- Test 9: Valid - Chimney From Top ---
@@ -184,6 +184,66 @@ RUNNING TEST SUITE
 ✓ SVG generated
 ✓ Test 12 PASSED
 
+--- Test 13: Valid - Diagonal Chimney ---
 ============================================================
-TEST RESULTS: 12 passed, 0 failed out of 12 total
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 6 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✓ Validation PASSED
+   [WARN] Asymmetry detected on Row 1.
+   [WARN] Asymmetry detected on Row 2.
+   [WARN] Asymmetry detected on Row 3.
+   [WARN] Asymmetry detected on Row 4.
+   [WARN] Asymmetry detected on Row 5.
+   [WARN] Asymmetry detected on Row 6.
+
+[PHASE 4: CODE GENERATION]
+✓ JSON generated
+✓ SVG generated
+✓ Test 13 PASSED
+
+--- Test 14: Valid - Diagonal Chimney Left to Right ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 5 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✓ Validation PASSED
+   [WARN] Asymmetry detected on Row 1.
+   [WARN] Asymmetry detected on Row 2.
+   [WARN] Asymmetry detected on Row 3.
+   [WARN] Asymmetry detected on Row 4.
+   [WARN] Asymmetry detected on Row 5.
+
+[PHASE 4: CODE GENERATION]
+✓ JSON generated
+✓ SVG generated
+✓ Test 14 PASSED
+
+--- Test 15: Invalid - Disconnected Diagonal Chimney ---
+============================================================
+--- FACADE LAYOUT COMPILER ---
+============================================================
+
+[PHASE 1: PARSING]
+✓ Parsed 5 rows
+
+[PHASE 3: SEMANTIC ANALYSIS]
+✗ Validation FAILED:
+   [ERROR] Structural Violation: Chimney region at columns 3-4 does not start from top row (Row 1).
+   [WARN] Asymmetry detected on Row 1.
+   [WARN] Asymmetry detected on Row 2.
+   [WARN] Asymmetry detected on Row 4.
+   [WARN] Asymmetry detected on Row 5.
+✓ Test 15 PASSED
+
+============================================================
+TEST RESULTS: 15 passed, 0 failed out of 15 total
 ============================================================

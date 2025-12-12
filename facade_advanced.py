@@ -249,39 +249,73 @@ class FacadeAnalyzer:
 
     def _check_chimney_placement(self):
         """
-        Rule: Chimneys must be continuous from top row, same column, no gaps.
-        ERROR if chimney doesn't start from top or has gaps.
+        Rule: Chimneys must form connected regions that start from the top row.
+        Chimneys can be diagonal/staircase (horizontally adjacent between rows) as long as:
+        1. The chimney region touches the top row (row 0)
+        2. The chimney region is continuous (no disconnected chimney cells)
+        ERROR if chimney doesn't connect to top or is disconnected.
         """
         if not self.grid:
             return
         
-        # Track chimney columns and their extent
-        chimney_columns = {}
-        
-        # Scan grid to find all chimneys
+        # Find all chimney cells
+        chimney_cells = set()
         for r_idx, row in enumerate(self.grid):
             for c_idx, cell in enumerate(row):
                 if cell == 'C':
-                    if c_idx not in chimney_columns:
-                        chimney_columns[c_idx] = []
-                    chimney_columns[c_idx].append(r_idx)
+                    chimney_cells.add((r_idx, c_idx))
         
-        # Validate each chimney column
-        for col, rows in chimney_columns.items():
-            rows_sorted = sorted(rows)
+        if not chimney_cells:
+            return  # No chimneys to check
+        
+        # Find connected components using flood fill
+        def get_neighbors(cell):
+            """Get adjacent cells (up, down, left, right)"""
+            r, c = cell
+            neighbors = []
+            for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                nr, nc = r + dr, c + dc
+                if (nr, nc) in chimney_cells:
+                    neighbors.append((nr, nc))
+            return neighbors
+        
+        def flood_fill(start, visited):
+            """Find all cells in the connected component containing start"""
+            component = set()
+            stack = [start]
+            while stack:
+                cell = stack.pop()
+                if cell in visited:
+                    continue
+                visited.add(cell)
+                component.add(cell)
+                for neighbor in get_neighbors(cell):
+                    if neighbor not in visited:
+                        stack.append(neighbor)
+            return component
+        
+        # Find all connected components
+        visited = set()
+        components = []
+        for cell in chimney_cells:
+            if cell not in visited:
+                component = flood_fill(cell, visited)
+                components.append(component)
+        
+        # Validate each connected component
+        for comp_idx, component in enumerate(components):
+            # Get the rows and columns in this component
+            rows_in_component = {cell[0] for cell in component}
+            cols_in_component = {cell[1] for cell in component}
             
-            # Rule 1: Chimneys must start from top row (row 0)
-            if 0 not in rows_sorted:
+            # Rule 1: Component must touch top row (row 0)
+            if 0 not in rows_in_component:
+                min_col = min(cols_in_component) + 1
+                max_col = max(cols_in_component) + 1
+                col_desc = f"column {min_col}" if min_col == max_col else f"columns {min_col}-{max_col}"
                 self.errors.append(
-                    f"Structural Violation: Chimney at column {col+1} does not start from top row (Row 1)."
+                    f"Structural Violation: Chimney region at {col_desc} does not start from top row (Row 1)."
                 )
-            
-            # Rule 2: Chimneys must be continuous (no gaps)
-            for i in range(len(rows_sorted) - 1):
-                if rows_sorted[i+1] - rows_sorted[i] != 1:
-                    self.errors.append(
-                        f"Structural Violation: Chimney at column {col+1} has a gap between Row {rows_sorted[i]+1} and Row {rows_sorted[i+1]+1}."
-                    )
 
     def _check_no_window_above_door(self):
         """
@@ -608,16 +642,16 @@ def run_test_suite():
             "expected_errors": 1
         },
         
-        # Test 8: Invalid - chimney with gap (ERROR)
+        # Test 8: Invalid - chimney with gap (ERROR) - disconnected chimney regions
         {
-            "name": "Invalid - Chimney With Gap",
+            "name": "Invalid - Chimney With Gap (Disconnected)",
             "code": """
             row 1: E C E
             row 2: E E E
             row 3: E C E
             """,
             "should_pass": False,
-            "expected_errors": 1  # Gap error
+            "expected_errors": 1  # The bottom C is disconnected and doesn't reach top
         },
         
         # Test 9: Valid chimney from top
@@ -666,6 +700,47 @@ def run_test_suite():
             """,
             "should_pass": True
         },
+        
+        # Test 13: Valid - Diagonal/Staircase Chimney (NEW TEST)
+        {
+            "name": "Valid - Diagonal Chimney",
+            "code": """
+            row 1: E E C E E E E E E E E
+            row 2: W W C C W W W W W W W
+            row 3: W E S C C S S S W E W
+            row 4: W E S S C C S W W E W
+            row 5: E E S S S C C E E E E
+            row 6: E D D E E E C C D D E
+            """,
+            "should_pass": True
+        },
+        
+        # Test 14: Valid - Another diagonal chimney pattern
+        {
+            "name": "Valid - Diagonal Chimney Left to Right",
+            "code": """
+            row 1: C E E E E
+            row 2: C C E E E
+            row 3: E C C E E
+            row 4: E E C C E
+            row 5: E E E C E
+            """,
+            "should_pass": True
+        },
+        
+        # Test 15: Invalid - Disconnected diagonal chimney (gap in the middle)
+        {
+            "name": "Invalid - Disconnected Diagonal Chimney",
+            "code": """
+            row 1: C E E E E
+            row 2: C E E E E
+            row 3: E E E E E
+            row 4: E E C C E
+            row 5: E E E C E
+            """,
+            "should_pass": False,
+            "expected_errors": 1  # Bottom chimney region doesn't connect to top
+        },
     ]
     
     print("\n" + "=" * 60)
@@ -710,15 +785,61 @@ if __name__ == "__main__":
     if args.test:
         run_test_suite()
     else:
-        # facade_1
-        source_code = """ 
-        row 1: E E E E E E E E C E E 
-        row 2: S S S S S S S S C S S 
-        row 3: S S W W S S S W W S S 
-        row 4: S S W W S S S W W S S 
-        row 5: S S S S S S S S S S S 
-        row 6: S S D D S S W W W W S 
-        row 7: S S D D S S W W W W S 
+        # # facade_1
+        # source_code = """ 
+        # row 1: E E E E E E E E C E E 
+        # row 2: S S S S S S S S C S S 
+        # row 3: S S W W S S S W W S S 
+        # row 4: S S W W S S S W W S S 
+        # row 5: S S S S S S S S S S S 
+        # row 6: S S D D S S W W W W S 
+        # row 7: S S D D S S W W W W S 
+        # """
+
+        # facade_2
+        # source_code = """
+        # row 1: E W S E E W W E S W E
+        # row 2: W E W S E E S W E E E
+        # row 3: E S E W W S E E W S E
+        # row 4: S W S S E W E S E W E
+        # row 5: E E W E S S W E E S W
+        # row 6: W S E E W E S W S E E
+        # row 7: D D E D E E D E D D E
+        # """
+
+        # # facade_3
+        # source_code = """
+        # row 1: E C E S E S E C E
+        # row 2: E C E W E W E C E
+        # row 3: E C E W E W E C E
+        # row 4: E C E W W W E C E
+        # row 5: E C E W E W E C E
+        # row 6: E C E W E W E C E
+        # row 7: E C E S S S E C E
+        # row 8: E E E S S S E E E
+        # row 9: E D D E E E D D E
+        # """
+
+        # # facade_4
+        # source_code = """
+        # row 1: E E C E E E E E E E E
+        # row 2: W W C C W W W W W W W
+        # row 3: W S S C C S S S W S W
+        # row 4: W S S S C C S W W S W
+        # row 5: E S S S S C C S S S E
+        # row 6: E D D S S S C S D D E
+        # """
+
+        # facade_5
+        source_code = """
+        row 1: E C E E E E C E E E E C E
+        row 2: E C S W W W C W W W S C E
+        row 3: E C S W S W C W S W S C E
+        row 4: E C S W S W C W S W S C E
+        row 5: E C S W W W C W W W S C E
+        row 6: E S S S S S S S S S S S E
+        row 7: E W W S S S W S S S W W E
+        row 8: D D S E S D D D S E S D D
         """
 
         json_result, svg_result, analysis, generator = compile_facade(source_code, apply_transforms=True)
@@ -726,9 +847,9 @@ if __name__ == "__main__":
         if json_result:
             output_dir = args.output_dir
             
-            json_path = f'{output_dir}/facade_1.json'
-            svg_path = f'{output_dir}/facade_1.svg'
-            png_path = f'{output_dir}/facade_1.png'
+            json_path = f'{output_dir}/facade_5.json'
+            svg_path = f'{output_dir}/facade_5.svg'
+            png_path = f'{output_dir}/facade_5.png'
             
             with open(json_path, 'w') as f:
                 f.write(json_result)

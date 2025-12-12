@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "rows": 8,
+    "cols": 13,
+    "declared_size": null,
+    "rules": {}
+  },
+  "layout": [
+    [
+      "E",
+      "C",
+      "E",
+      "E",
+      "E",
+      "E",
+      "C",
+      "E",
+      "E",
+      "E",
+      "E",
+      "C",
+      "E"
+    ],
+    [
+      "E",
+      "C",
+      "S",
+      "W",
+      "W",
+      "W",
+      "C",
+      "W",
+      "W",
+      "W",
+      "S",
+      "C",
+      "E"
+    ],
+    [
+      "E",
+      "C",
+      "S",
+      "W",
+      "S",
+      "W",
+      "C",
+      "W",
+      "S",
+      "W",
+      "S",
+      "C",
+      "E"
+    ],
+    [
+      "E",
+      "C",
+      "S",
+      "W",
+      "S",
+      "W",
+      "C",
+      "W",
+      "S",
+      "W",
+      "S",
+      "C",
+      "E"
+    ],
+    [
+      "E",
+      "C",
+      "S",
+      "W",
+      "W",
+      "W",
+      "C",
+      "W",
+      "W",
+      "W",
+      "S",
+      "C",
+      "E"
+    ],
+    [
+      "E",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "S",
+      "E"
+    ],
+    [
+      "E",
+      "W",
+      "W",
+      "S",
+      "S",
+      "S",
+      "W",
+      "S",
+      "S",
+      "S",
+      "W",
+      "W",
+      "E"
+    ],
+    [
+      "D",
+      "D",
+      "S",
+      "E",
+      "S",
+      "D",
+      "D",
+      "D",
+      "S",
+      "E",
+      "S",
+      "D",
+      "D"
+    ]
+  ],
+  "validation": {
+    "is_valid": true,
+    "errors": [],
+    "warnings": [
+      "Design warning: Window at Row 7, Col 2 is directly above door at Row 8, Col 2.",
+      "Design warning: Window at Row 7, Col 7 is directly above door at Row 8, Col 7.",
+      "Design warning: Window at Row 7, Col 12 is directly above door at Row 8, Col 12."
+    ]
+  }
+}

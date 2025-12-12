@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "rows": 6,
+    "cols": 11,
+    "declared_size": null,
+    "rules": {}
+  },
+  "layout": [
+    [
+      "E",
+      "E",
+      "C",
+      "E",
+      "E",
+      "E",
+      "E",
+      "E",
+      "E",
+      "E",
+      "E"
+    ],
+    [
+      "W",
+      "W",
+      "C",
+      "C",
+      "W",
+      "W",
+      "W",
+      "W",
+      "W",
+      "W",
+      "W"
+    ],
+    [
+      "W",
+      "S",
+      "S",
+      "C",
+      "C",
+      "S",
+      "S",
+      "S",
+      "W",
+      "S",
+      "W"
+    ],
+    [
+      "W",
+      "S",
+      "S",
+      "S",
+      "C",
+      "C",
+      "S",
+      "W",
+      "W",
+      "S",
+      "W"
+    ],
+    [
+      "E",
+      "S",
+      "S",
+      "S",
+      "S",
+      "C",
+      "C",
+      "S",
+      "S",
+      "S",
+      "E"
+    ],
+    [
+      "E",
+      "D",
+      "D",
+      "S",
+      "S",
+      "S",
+      "C",
+      "S",
+      "D",
+      "D",
+      "E"
+    ]
+  ],
+  "validation": {
+    "is_valid": true,
+    "errors": [],
+    "warnings": [
+      "Asymmetry detected on Row 1.",
+      "Asymmetry detected on Row 2.",
+      "Asymmetry detected on Row 3.",
+      "Asymmetry detected on Row 4.",
+      "Asymmetry detected on Row 5.",
+      "Asymmetry detected on Row 6."
+    ]
+  }
+}

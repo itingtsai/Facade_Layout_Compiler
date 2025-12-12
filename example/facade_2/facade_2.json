@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "rows": 7,
+    "cols": 11,
+    "declared_size": null,
+    "rules": {}
+  },
+  "layout": [
+    [
+      "E",
+      "W",
+      "S",
+      "E",
+      "E",
+      "W",
+      "W",
+      "E",
+      "S",
+      "W",
+      "E"
+    ],
+    [
+      "W",
+      "E",
+      "W",
+      "S",
+      "E",
+      "E",
+      "S",
+      "W",
+      "E",
+      "E",
+      "E"
+    ],
+    [
+      "E",
+      "S",
+      "E",
+      "W",
+      "W",
+      "S",
+      "E",
+      "E",
+      "W",
+      "S",
+      "E"
+    ],
+    [
+      "S",
+      "W",
+      "S",
+      "S",
+      "E",
+      "W",
+      "E",
+      "S",
+      "E",
+      "W",
+      "E"
+    ],
+    [
+      "E",
+      "E",
+      "W",
+      "E",
+      "S",
+      "S",
+      "W",
+      "E",
+      "E",
+      "S",
+      "W"
+    ],
+    [
+      "W",
+      "S",
+      "E",
+      "E",
+      "W",
+      "E",
+      "S",
+      "W",
+      "S",
+      "E",
+      "E"
+    ],
+    [
+      "D",
+      "D",
+      "E",
+      "D",
+      "E",
+      "E",
+      "D",
+      "E",
+      "D",
+      "D",
+      "E"
+    ]
+  ],
+  "validation": {
+    "is_valid": true,
+    "errors": [],
+    "warnings": [
+      "Asymmetry detected on Row 1.",
+      "Asymmetry detected on Row 2.",
+      "Asymmetry detected on Row 3.",
+      "Asymmetry detected on Row 4.",
+      "Asymmetry detected on Row 5.",
+      "Asymmetry detected on Row 6.",
+      "Asymmetry detected on Row 7.",
+      "Design warning: Window at Row 6, Col 1 is directly above door at Row 7, Col 1."
+    ]
+  }
+}
