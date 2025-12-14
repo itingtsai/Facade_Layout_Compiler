@@ -188,7 +188,7 @@ If the rule `min_window_spacing` is declared, the analyzer checks horizontal dis
 
 The analyzer compares each row with its horizontal mirror. Asymmetric rows produce warnings to inform the designer of potential stylistic inconsistency. This is informational rather than prescriptive.
 
-### Error Classification Philosophy
+### Error Classification
 
 I deliberately distinguished between errors (fatal violations) and warnings (stylistic concerns):
 
