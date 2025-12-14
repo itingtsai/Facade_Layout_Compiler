@@ -1,11 +1,11 @@
 {
   "meta": {
-    "rows": 7,
-    "cols": 11,
-    "declared_size": null,
-    "rules": {}
+    "width": 11,
+    "height": 7,
+    "rules": {},
+    "auto_filled": []
   },
-  "layout": [
+  "grid": [
     [
       "E",
       "W",
@@ -102,14 +102,13 @@
     "is_valid": true,
     "errors": [],
     "warnings": [
-      "Asymmetry detected on Row 1.",
-      "Asymmetry detected on Row 2.",
-      "Asymmetry detected on Row 3.",
-      "Asymmetry detected on Row 4.",
-      "Asymmetry detected on Row 5.",
-      "Asymmetry detected on Row 6.",
-      "Asymmetry detected on Row 7.",
-      "Design warning: Window at Row 6, Col 1 is directly above door at Row 7, Col 1."
+      "Row 1 asymmetric",
+      "Row 2 asymmetric",
+      "Row 3 asymmetric",
+      "Row 4 asymmetric",
+      "Row 5 asymmetric",
+      "Row 6 asymmetric",
+      "Row 7 asymmetric"
     ]
   }
 }

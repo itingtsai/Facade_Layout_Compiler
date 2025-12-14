@@ -830,16 +830,21 @@ if __name__ == "__main__":
         # row 6: E D D S S S C S D D E
         # """
 
-        # facade_5
+        # # facade_5
+        # source_code = """
+        # row 1: E C E E E E C E E E E C E
+        # row 2: E C S W W W C W W W S C E
+        # row 3: E C S W S W C W S W S C E
+        # row 4: E C S W S W C W S W S C E
+        # row 5: E C S W W W C W W W S C E
+        # row 6: E S S S S S S S S S S S E
+        # row 7: E W W S S S W S S S W W E
+        # row 8: D D S E S D D D S E S D D
+        # """
+
+        # error_test
         source_code = """
-        row 1: E C E E E E C E E E E C E
-        row 2: E C S W W W C W W W S C E
-        row 3: E C S W S W C W S W S C E
-        row 4: E C S W S W C W S W S C E
-        row 5: E C S W W W C W W W S C E
-        row 6: E S S S S S S S S S S S E
-        row 7: E W W S S S W S S S W W E
-        row 8: D D S E S D D D S E S D D
+        rx 2 g k ,
         """
 
         json_result, svg_result, analysis, generator = compile_facade(source_code, apply_transforms=True)
@@ -847,9 +852,9 @@ if __name__ == "__main__":
         if json_result:
             output_dir = args.output_dir
             
-            json_path = f'{output_dir}/facade_5.json'
-            svg_path = f'{output_dir}/facade_5.svg'
-            png_path = f'{output_dir}/facade_5.png'
+            json_path = f'{output_dir}/test.json'
+            svg_path = f'{output_dir}/test.svg'
+            png_path = f'{output_dir}/test.png'
             
             with open(json_path, 'w') as f:
                 f.write(json_result)

@@ -1,249 +1,216 @@
-============================================================
-RUNNING TEST SUITE
-============================================================
+======================================================================
+TEST SUITE
+======================================================================
 
---- Test 1: Valid Symmetric Facade ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
+[Basic]
+  ✓ Basic: Simple row
+  ✓ Basic: Multiple rows
+  ✓ Basic: All element types
+  ✓ Basic: Single cell
+  ✓ Basic: Single row single cell
+  [5/5 passed]
 
-[PHASE 1: PARSING]
-✓ Parsed 5 rows
-✓ Grid size: 8x5
+[Syntax]
+  ✓ Syntax: Compact symbols
+  ✓ Syntax: Mixed compact/spaced
+  ✓ Syntax: Repeat expression
+  ✓ Syntax: Multiple repeats
+  ✓ Syntax: Repeat with compact
+  ✓ Syntax: Single line multiple rows
+  ✓ Syntax: Lowercase symbols
+  ✓ Syntax: Mixed case
+  ✓ Syntax: Extra whitespace
+  ✓ Syntax: Newlines between rows
+  ✓ Syntax: Tabs as whitespace
+  [11/11 passed]
 
-[PHASE 3: SEMANTIC ANALYSIS]
-✓ Validation PASSED
+[Comments]
+  ✓ Comments: End of line
+  ✓ Comments: Full line comment
+  ✓ Comments: Multiple comments
+  ✓ Comments: Empty comment
+  [4/4 passed]
 
-[PHASE 4: CODE GENERATION]
-✓ JSON generated
-✓ SVG generated
-✓ Test 1 PASSED
+[AutoFill]
+  ✓ AutoFill: Short second row
+  ✓ AutoFill: Multiple short rows
+  ✓ AutoFill: First row shorter
+  ✓ AutoFill: All different lengths
+  ✓ AutoFill: Empty row (all auto)
+  [5/5 passed]
 
---- Test 2: Invalid - Door on Upper Floor ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
+[RowNum]
+  ✓ RowNum: Out of order
+  ✓ RowNum: Gaps filled
+  ✓ RowNum: Duplicate (last wins)
+  ✓ RowNum: Large number
+  ✓ RowNum: Non-sequential
+  [5/5 passed]
 
-[PHASE 1: PARSING]
-✓ Parsed 2 rows
+[Rules]
+  ✓ Rules: Single rule
+  ✓ Rules: Multiple rules
+  ✓ Rules: Rule with multiple values
+  ✓ Rules: Numeric rule value
+  [4/4 passed]
 
-[PHASE 3: SEMANTIC ANALYSIS]
-✗ Validation FAILED:
-   [ERROR] Structural Violation: Door at column 2 does not reach ground floor (Row 2).
-✓ Test 2 PASSED
+[Door]
+  ✓ Door: Valid ground floor
+  ✓ Door: Valid multi-row
+  ✓ Door: Valid double door
+  ✓ Door: Invalid not ground
+  ✓ Door: Invalid gap
+  ✓ Door: Invalid floating
+  ✓ Door: Multiple columns valid
+  ✓ Door: Multiple columns one invalid
+  [8/8 passed]
 
---- Test 3: Invalid - Grid Size Mismatch ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
+[Chimney]
+  ✓ Chimney: Valid from top
+  ✓ Chimney: Valid single row
+  ✓ Chimney: Valid diagonal
+  ✓ Chimney: Invalid not from top
+  ✓ Chimney: Invalid disconnected
+  ✓ Chimney: Invalid gap vertical
+  ✓ Chimney: Multiple valid
+  ✓ Chimney: One valid one invalid
+  [8/8 passed]
 
-[PHASE 1: PARSING]
-✓ Parsed 2 rows
-✓ Grid size: 4x2
+[WinSpace]
+  ✓ WinSpace: Valid spacing
+  ✓ WinSpace: Invalid spacing
+  ✓ WinSpace: Adjacent windows no rule
+  ✓ WinSpace: Zero spacing rule
+  [4/4 passed]
 
-[PHASE 3: SEMANTIC ANALYSIS]
-✗ Validation FAILED:
-   [ERROR] Grid size mismatch: expected 4 columns, got 3.
-✓ Test 3 PASSED
+[BadChar]
+  ✓ BadChar: At sign
+  ✓ BadChar: Dollar sign
+  ✓ BadChar: Ampersand
+  ✓ BadChar: Percent
+  ✓ BadChar: Exclamation
+  ✓ BadChar: Question mark
+  ✓ BadChar: Semicolon
+  ✓ BadChar: Comma
+  ✓ BadChar: Period
+  ✓ BadChar: Brackets
+  ✓ BadChar: Braces
+  ✓ BadChar: Parentheses
+  ✓ BadChar: Pipe
+  ✓ BadChar: Backslash
+  ✓ BadChar: Quote
+  ✓ BadChar: Single quote
+  ✓ BadChar: Unicode
+  ✓ BadChar: Emoji
+  [18/18 passed]
 
---- Test 4: Valid with Window Spacing Rule ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
+[BadSymbol]
+  ✓ BadSymbol: Letter X
+  ✓ BadSymbol: Letter A
+  ✓ BadSymbol: Letter Z
+  ✓ BadSymbol: Mixed valid/invalid
+  ✓ BadSymbol: Number as symbol
+  ✓ BadSymbol: Word instead of symbol
+  [6/6 passed]
 
-[PHASE 1: PARSING]
-✓ Parsed 2 rows
-✓ Rules: {'min_window_spacing': '2'}
+[SyntaxErr]
+  ✓ SyntaxErr: Missing colon
+  ✓ SyntaxErr: Missing row number
+  ✓ SyntaxErr: Missing row keyword
+  ✓ SyntaxErr: Empty input
+  ✓ SyntaxErr: Only whitespace
+  ✓ SyntaxErr: Only comments
+  ✓ SyntaxErr: No cells after colon
+  ✓ SyntaxErr: Double colon
+  ✓ SyntaxErr: Negative row number
+  ✓ SyntaxErr: Zero row number
+  ✓ SyntaxErr: Float row number
+  ✓ SyntaxErr: Incomplete repeat
+  ✓ SyntaxErr: Repeat with zero
+  ✓ SyntaxErr: Repeat with negative
+  ✓ SyntaxErr: Repeat no number
+  ✓ SyntaxErr: Rule without value
+  ✓ SyntaxErr: Rule without name
+  ✓ SyntaxErr: Rule without colon
+  [18/18 passed]
 
-[PHASE 3: SEMANTIC ANALYSIS]
-✓ Validation PASSED
+[Edge]
+  ✓ Edge: Very long row
+  ✓ Edge: Many rows
+  ✓ Edge: Large repeat
+  ✓ Edge: All doors (valid single row)
+  ✓ Edge: All chimneys (valid)
+  ✓ Edge: All windows
+  ✓ Edge: All stone
+  ✓ Edge: All empty
+  ✓ Edge: Alternating pattern
+  ✓ Edge: Checkerboard
+  [10/10 passed]
 
-[PHASE 4: CODE GENERATION]
-✓ JSON generated
-✓ SVG generated
-✓ Test 4 PASSED
+[Complex]
+  ✓ Complex: House with chimney and door
+  ✓ Complex: Symmetric building
+  ✓ Complex: Multi-door building
+  ✓ Complex: Tall building
+  [4/4 passed]
 
---- Test 5: Asymmetric Facade (Warning Only) ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
+[Boundary]
+  ✓ Boundary: Row number 0
+  ✓ Boundary: Single char repeat
+  ✓ Boundary: Max practical repeat
+  ✓ Boundary: Unicode in comment
+  [4/4 passed]
 
-[PHASE 1: PARSING]
-✓ Parsed 2 rows
+[WS]
+  ✓ WS: Leading whitespace
+  ✓ WS: Trailing whitespace
+  ✓ WS: Multiple blank lines
+  ✓ WS: Carriage return
+  ✓ WS: Mixed line endings
+  [5/5 passed]
 
-[PHASE 3: SEMANTIC ANALYSIS]
-✓ Validation PASSED
-   [WARN] Asymmetry detected on Row 1.
+[BadSymbol2]
+  ✓ BadSymbol2: Lowercase invalid
+  ✓ BadSymbol2: Mixed with valid
+  ✓ BadSymbol2: Only invalid
+  ✓ BadSymbol2: Invalid in compact
+  ✓ BadSymbol2: Reserved word
+  ✓ BadSymbol2: Rule as symbol
+  [6/6 passed]
 
-[PHASE 4: CODE GENERATION]
-✓ JSON generated
-✓ SVG generated
-✓ Test 5 PASSED
+[Stress]
+  ✓ Stress: 100 columns
+  ✓ Stress: 100 rows compact
+  ✓ Stress: Large repeat value
+  ✓ Stress: Many repeats
+  ✓ Stress: Deep nesting pattern
+  [5/5 passed]
 
---- Test 6: Window Above Door (Warning Only) ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
+[Recovery]
+  ✓ Recovery: Error then valid row
+  ✓ Recovery: Multiple errors
+  ✓ Recovery: Invalid then valid symbol
+  [3/3 passed]
 
-[PHASE 1: PARSING]
-✓ Parsed 2 rows
+[Combo]
+  ✓ Combo: Rule + compact + repeat
+  ✓ Combo: Multi-rule + auto-fill
+  ✓ Combo: Comments everywhere
+  ✓ Combo: All features
+  [4/4 passed]
 
-[PHASE 3: SEMANTIC ANALYSIS]
-✓ Validation PASSED
-   [WARN] Design warning: Window at Row 1, Col 2 is directly above door at Row 2, Col 2.
+[ZeroRepeat]
+  ✓ ZeroRepeat: E*0 at start
+  ✓ ZeroRepeat: C*0 at start
+  ✓ ZeroRepeat: Multiple zeros
+  ✓ ZeroRepeat: Zero in middle
+  ✓ ZeroRepeat: Zero at end
+  ✓ ZeroRepeat: All zeros except one
+  ✓ ZeroRepeat: Mixed zero and non-zero
+  ✓ ZeroRepeat: Auto-fill with zeros
+  ✓ ZeroRepeat: Two rows with zeros
+  [9/9 passed]
 
-[PHASE 4: CODE GENERATION]
-✓ JSON generated
-✓ SVG generated
-✓ Test 6 PASSED
-
---- Test 7: Invalid - Chimney Not From Top ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
-
-[PHASE 1: PARSING]
-✓ Parsed 3 rows
-
-[PHASE 3: SEMANTIC ANALYSIS]
-✗ Validation FAILED:
-   [ERROR] Structural Violation: Chimney region at column 2 does not start from top row (Row 1).
-✓ Test 7 PASSED
-
---- Test 8: Invalid - Chimney With Gap (Disconnected) ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
-
-[PHASE 1: PARSING]
-✓ Parsed 3 rows
-
-[PHASE 3: SEMANTIC ANALYSIS]
-✗ Validation FAILED:
-   [ERROR] Structural Violation: Chimney region at column 2 does not start from top row (Row 1).
-✓ Test 8 PASSED
-
---- Test 9: Valid - Chimney From Top ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
-
-[PHASE 1: PARSING]
-✓ Parsed 3 rows
-
-[PHASE 3: SEMANTIC ANALYSIS]
-✓ Validation PASSED
-
-[PHASE 4: CODE GENERATION]
-✓ JSON generated
-✓ SVG generated
-✓ Test 9 PASSED
-
---- Test 10: Invalid - Door With Gap ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
-
-[PHASE 1: PARSING]
-✓ Parsed 4 rows
-
-[PHASE 3: SEMANTIC ANALYSIS]
-✗ Validation FAILED:
-   [ERROR] Structural Violation: Door at column 2 has a gap between Row 2 and Row 4.
-✓ Test 10 PASSED
-
---- Test 11: Valid - Multi-row Door ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
-
-[PHASE 1: PARSING]
-✓ Parsed 3 rows
-
-[PHASE 3: SEMANTIC ANALYSIS]
-✓ Validation PASSED
-
-[PHASE 4: CODE GENERATION]
-✓ JSON generated
-✓ SVG generated
-✓ Test 11 PASSED
-
---- Test 12: Valid - Complex Facade ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
-
-[PHASE 1: PARSING]
-✓ Parsed 4 rows
-
-[PHASE 3: SEMANTIC ANALYSIS]
-✓ Validation PASSED
-
-[PHASE 4: CODE GENERATION]
-✓ JSON generated
-✓ SVG generated
-✓ Test 12 PASSED
-
---- Test 13: Valid - Diagonal Chimney ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
-
-[PHASE 1: PARSING]
-✓ Parsed 6 rows
-
-[PHASE 3: SEMANTIC ANALYSIS]
-✓ Validation PASSED
-   [WARN] Asymmetry detected on Row 1.
-   [WARN] Asymmetry detected on Row 2.
-   [WARN] Asymmetry detected on Row 3.
-   [WARN] Asymmetry detected on Row 4.
-   [WARN] Asymmetry detected on Row 5.
-   [WARN] Asymmetry detected on Row 6.
-
-[PHASE 4: CODE GENERATION]
-✓ JSON generated
-✓ SVG generated
-✓ Test 13 PASSED
-
---- Test 14: Valid - Diagonal Chimney Left to Right ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
-
-[PHASE 1: PARSING]
-✓ Parsed 5 rows
-
-[PHASE 3: SEMANTIC ANALYSIS]
-✓ Validation PASSED
-   [WARN] Asymmetry detected on Row 1.
-   [WARN] Asymmetry detected on Row 2.
-   [WARN] Asymmetry detected on Row 3.
-   [WARN] Asymmetry detected on Row 4.
-   [WARN] Asymmetry detected on Row 5.
-
-[PHASE 4: CODE GENERATION]
-✓ JSON generated
-✓ SVG generated
-✓ Test 14 PASSED
-
---- Test 15: Invalid - Disconnected Diagonal Chimney ---
-============================================================
---- FACADE LAYOUT COMPILER ---
-============================================================
-
-[PHASE 1: PARSING]
-✓ Parsed 5 rows
-
-[PHASE 3: SEMANTIC ANALYSIS]
-✗ Validation FAILED:
-   [ERROR] Structural Violation: Chimney region at columns 3-4 does not start from top row (Row 1).
-   [WARN] Asymmetry detected on Row 1.
-   [WARN] Asymmetry detected on Row 2.
-   [WARN] Asymmetry detected on Row 4.
-   [WARN] Asymmetry detected on Row 5.
-✓ Test 15 PASSED
-
-============================================================
-TEST RESULTS: 15 passed, 0 failed out of 15 total
-============================================================
+======================================================================
+TOTAL: 146/146 tests passed
+======================================================================

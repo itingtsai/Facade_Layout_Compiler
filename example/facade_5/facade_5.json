@@ -1,11 +1,11 @@
 {
   "meta": {
-    "rows": 8,
-    "cols": 13,
-    "declared_size": null,
-    "rules": {}
+    "width": 13,
+    "height": 8,
+    "rules": {},
+    "auto_filled": []
   },
-  "layout": [
+  "grid": [
     [
       "E",
       "C",
@@ -130,10 +130,6 @@
   "validation": {
     "is_valid": true,
     "errors": [],
-    "warnings": [
-      "Design warning: Window at Row 7, Col 2 is directly above door at Row 8, Col 2.",
-      "Design warning: Window at Row 7, Col 7 is directly above door at Row 8, Col 7.",
-      "Design warning: Window at Row 7, Col 12 is directly above door at Row 8, Col 12."
-    ]
+    "warnings": []
   }
 }

@@ -1,11 +1,24 @@
 {
   "meta": {
-    "rows": 6,
-    "cols": 11,
-    "declared_size": null,
-    "rules": {}
+    "width": 11,
+    "height": 6,
+    "rules": {},
+    "auto_filled": [
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        1
+      ]
+    ]
   },
-  "layout": [
+  "grid": [
     [
       "E",
       "E",
@@ -89,12 +102,12 @@
     "is_valid": true,
     "errors": [],
     "warnings": [
-      "Asymmetry detected on Row 1.",
-      "Asymmetry detected on Row 2.",
-      "Asymmetry detected on Row 3.",
-      "Asymmetry detected on Row 4.",
-      "Asymmetry detected on Row 5.",
-      "Asymmetry detected on Row 6."
+      "Row 1 asymmetric",
+      "Row 2 asymmetric",
+      "Row 3 asymmetric",
+      "Row 4 asymmetric",
+      "Row 5 asymmetric",
+      "Row 6 asymmetric"
     ]
   }
 }
