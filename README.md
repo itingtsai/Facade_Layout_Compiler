@@ -1,3 +1,14 @@
++++
+title = "Facade Layout Compiler"
+[extra]
+bio = """
+  I-Ting Tsai is a CS PhD student with a background in Architecture.
+"""
+[[extra.authors]]
+name = "I-Ting Tsai"
+
++++
+
 # Experience Report: Facade Layout Compiler
 
 ## What was the goal?
@@ -24,7 +35,7 @@ The scope evolved slightly during implementation. More details are described in 
 
 ## What did you do?
 
-The complete implementation is available in [facade_compiler.py](facade_compiler.py)
+The complete implementation is available in [facade_compiler.py](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/facade_compiler.py)
 
 ### DSL Design
 
@@ -307,7 +318,7 @@ I used an LLM as a test ideation tool: after implementing a feature, I asked it 
 
 ### Quantitative Evaluation
 
-The testing results printout is available in [test.txt](test/test.txt)
+The testing results printout is available in [test.txt](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/test/test.txt)
 
 Comprehensive testing is hard. There is no existing benchmark. After implementing and validating each new rule, I use an LLM for test ideation (e.g., "Give me edge cases to test user inputs containing characters outside the defined DSL elements.") and then manually determine and verify the expected behavior. This approach helped broaden test coverage to corner cases that I wouldn't have considered. The categorized test suite made it easy to verify that each feature worked in isolation and in combination.
 
@@ -356,7 +367,7 @@ The compiler handles extreme inputs without issues:
 
 ### Qualitative Validation
 
-I output 5 facade examples (json, svg, png) together with image gen visualizations which are available in the [example folder](example/).
+I output 5 facade examples (json, svg, png) together with image gen visualizations which are available in the [example folder](https://github.com/itingtsai/Facade_Layout_Compiler/tree/main/example).
 
 Beyond automated testing, I validated output quality through visual inspection:
 
