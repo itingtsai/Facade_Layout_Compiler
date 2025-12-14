@@ -309,7 +309,7 @@ I used an LLM as a test ideation tool: after implementing a feature, I asked it 
 
 The testing results printout is available in [test.txt](test/test.txt)
 
-Comprehensive testing is hard. There is no existing benchmark. Using an LLM for test ideation (e.g., "Give me edge cases to test user inputs containing characters outside the defined DSL elements.") then manually verified the expected behavior, helps expand coverage to areas I wouldn't have considered. The categorized test suite made it easy to verify that each feature worked in isolation and combination. In practice, after implementing and testing a new rule, I use the LLM to brainstorm additional test cases to catch overlooked corner cases.
+Comprehensive testing is hard. There is no existing benchmark. After implementing and validating each new rule, I use an LLM for test ideation (e.g., "Give me edge cases to test user inputs containing characters outside the defined DSL elements.") and then manually determine and verify the expected behavior. This approach helped broaden test coverage to corner cases that I wouldn't have considered. The categorized test suite made it easy to verify that each feature worked in isolation and in combination.
 
 ### Test Suite Composition
 
