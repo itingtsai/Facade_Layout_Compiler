@@ -1,14 +1,3 @@
-+++
-title = "Facade Layout Compiler"
-[extra]
-bio = """
-  I-Ting Tsai is a CS PhD student with a background in Architecture.
-"""
-[[extra.authors]]
-name = "I-Ting Tsai"
-
-+++
-
 # Experience Report: Facade Layout Compiler
 
 ## What was the goal?
