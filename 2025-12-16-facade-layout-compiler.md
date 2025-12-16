@@ -35,7 +35,7 @@ The scope evolved slightly during implementation. More details are described in 
 
 ## What did you do?
 
-The complete implementation is available in [facade_compiler.py](facade_compiler.py)
+The complete implementation is available in [facade_compiler.py](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/facade_compiler.py)
 
 ### DSL Design
 
@@ -326,7 +326,7 @@ I used an LLM as a test ideation tool: after implementing a feature, I asked it 
 
 ### Quantitative Evaluation
 
-The testing results printout is available in [test.txt](test/test.txt)
+The testing results printout is available in [test.txt](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/test/test.txt)
 
 Comprehensive testing is hard. There is no existing benchmark. After implementing and validating each new rule, I use an LLM for test ideation (e.g., "Give me edge cases to test user inputs containing characters outside the defined DSL elements.") and then manually determine and verify the expected behavior. This approach helped broaden test coverage to corner cases that I wouldn't have considered. The categorized test suite made it easy to verify that each feature worked in isolation and in combination.
 
@@ -375,7 +375,7 @@ The compiler handles extreme inputs without issues:
 
 ### Qualitative Validation
 
-I output 5 facade examples (json, svg, png) together with image gen visualizations which are available in the [example folder](example/).
+I output 5 facade examples (json, svg, png) together with image gen visualizations which are available in the [example folder](https://github.com/itingtsai/Facade_Layout_Compiler/tree/main/example).
 
 Beyond automated testing, I validated output quality through visual inspection:
 
@@ -405,4 +405,4 @@ Building the compiler highlighted several practical lessons: DSL design requires
 
 Overall, this experience reinforced the power of compiler techniques as a general problem-solving framework. The resulting facade compiler provides a solid foundation for future extensions, such as richer architectural constraints, integration with generative design systems, or interactive feedback during editing.
 
-It was a great semester, even though I was personally juggling a lot. Coming from a very different background, I learned a great deal from this course and developed a much clearer understanding of what a compiler is and how it works. Thanks to everyone for the great online and in-class discussions, and especially to Adrian and Kei for the guidance and help throughout the semester.
+It was a great semester, even though I was personally juggling a lot. Coming from a very different background, I learned a lot from this course and developed a better understanding of what a compiler is and how it works. Thanks to everyone for the great online and in-class discussions, and especially to Adrian and Kei for the guidance and help throughout the semester.
