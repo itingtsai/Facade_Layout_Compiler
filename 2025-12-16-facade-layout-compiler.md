@@ -2,14 +2,15 @@
 title = "Facade Layout Compiler (# 618)"
 [extra]
 bio = """
-  I-Ting Tsai is a CS PhD student.
+  I-Ting Tsai is a CS PhD student at Cornell University.
 """
 [[extra.authors]]
 name = "I-Ting Tsai"
-
 +++
 
 # Experience Report: Facade Layout Compiler
+
+[Source Code](https://github.com/itingtsai/Facade_Layout_Compiler)
 
 ## What was the goal?
 
