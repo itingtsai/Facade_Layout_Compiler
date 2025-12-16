@@ -85,7 +85,7 @@ The DSL intentionally avoids geometric coordinates, numeric dimensions, or conti
 - Enables clear error reporting at the language level
 - Allows the same IR to be reused for multiple back-end targets (SVG, JSON, or potentially image generation prompts)
 
-The grammar is regular and unambiguous, making it amenable to simple hand-written parsing without requiring a parser generator or complex parsing techniques.
+The grammar is regular and unambiguous, making it amenable to simple hand-written parsing without requiring a parser generator.
 
 ---
 
