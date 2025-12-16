@@ -74,7 +74,7 @@ The DSL intentionally avoids geometric coordinates, numeric dimensions, or conti
 - Enables clear error reporting at the language level
 - Allows the same IR to be reused for multiple back-end targets (SVG, JSON, or potentially image generation prompts)
 
-The grammar is context-free and unambiguous, making it amenable to hand-written parsing without requiring a parser generator.
+The grammar is regular and unambiguous, making it amenable to simple hand-written parsing without requiring a parser generator or complex parsing techniques.
 
 ---
 
@@ -104,7 +104,7 @@ I implemented a hand-written lexer that performs character-level scanning. The l
 
 ### Parser Implementation
 
-The parser is a recursive-descent implementation that consumes the token stream and constructs an AST consisting of:
+The parser is a hand-written top-down predictive parser that consumes the token stream and constructs an AST consisting of:
 
 - **Program:** The root node containing rules and rows
 - **RuleDecl:** A rule declaration with name and value(s)
@@ -121,6 +121,14 @@ row_decl    ::= 'row' INTEGER ':' cell+
 cell        ::= SYMBOL | repeat_expr | symbol_sequence
 repeat_expr ::= SYMBOL '*' INTEGER
 ```
+
+**Note on Grammar Classification:** This grammar is regular, and the structure is purely sequential without nesting. The language could equivalently be expressed as a regular expression:
+
+```
+(rule IDENTIFIER : value+)* (row INTEGER : (SYMBOL | SYMBOL * INTEGER)+)+
+```
+
+**Note on Parser Classification:** The parser follows a top-down, predictive parsing strategy with one function per major grammar production (`parse()`, `parse_rule()`, `parse_row()`, `parse_cells()`). It is not strictly a recursive-descent parser because no function calls itself—the grammar's repetition operators (`*` and `+`) are implemented with iterative `while` loops rather than recursive calls. This iterative approach is natural for a regular grammar where recursion is unnecessary. The parser uses single-token lookahead via `check()` to predict which production to apply, making it a predictive parser.
 
 **Key design decisions:**
 

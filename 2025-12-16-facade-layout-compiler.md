@@ -2,7 +2,7 @@
 title = "Facade Layout Compiler (# 618)"
 [extra]
 bio = """
-  I-Ting Tsai is a CS PhD student with a background in Architecture.
+  I-Ting Tsai is a CS PhD student.
 """
 [[extra.authors]]
 name = "I-Ting Tsai"
@@ -35,7 +35,7 @@ The scope evolved slightly during implementation. More details are described in 
 
 ## What did you do?
 
-The complete implementation is available in [facade_compiler.py](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/facade_compiler.py)
+The complete implementation is available in [facade_compiler.py](facade_compiler.py)
 
 ### DSL Design
 
@@ -85,7 +85,7 @@ The DSL intentionally avoids geometric coordinates, numeric dimensions, or conti
 - Enables clear error reporting at the language level
 - Allows the same IR to be reused for multiple back-end targets (SVG, JSON, or potentially image generation prompts)
 
-The grammar is context-free and unambiguous, making it amenable to hand-written parsing without requiring a parser generator.
+The grammar is regular and unambiguous, making it amenable to simple hand-written parsing without requiring a parser generator or complex parsing techniques.
 
 ---
 
@@ -115,7 +115,7 @@ I implemented a hand-written lexer that performs character-level scanning. The l
 
 ### Parser Implementation
 
-The parser is a recursive-descent implementation that consumes the token stream and constructs an AST consisting of:
+The parser is a hand-written top-down predictive parser that consumes the token stream and constructs an AST consisting of:
 
 - **Program:** The root node containing rules and rows
 - **RuleDecl:** A rule declaration with name and value(s)
@@ -132,6 +132,14 @@ row_decl    ::= 'row' INTEGER ':' cell+
 cell        ::= SYMBOL | repeat_expr | symbol_sequence
 repeat_expr ::= SYMBOL '*' INTEGER
 ```
+
+**Note on Grammar Classification:** This grammar is regular, and the structure is purely sequential without nesting. The language could equivalently be expressed as a regular expression:
+
+```
+(rule IDENTIFIER : value+)* (row INTEGER : (SYMBOL | SYMBOL * INTEGER)+)+
+```
+
+**Note on Parser Classification:** The parser follows a top-down, predictive parsing strategy with one function per major grammar production (`parse()`, `parse_rule()`, `parse_row()`, `parse_cells()`). It is not strictly a recursive-descent parser because no function calls itself—the grammar's repetition operators (`*` and `+`) are implemented with iterative `while` loops rather than recursive calls. This iterative approach is natural for a regular grammar where recursion is unnecessary. The parser uses single-token lookahead via `check()` to predict which production to apply, making it a predictive parser.
 
 **Key design decisions:**
 
@@ -318,7 +326,7 @@ I used an LLM as a test ideation tool: after implementing a feature, I asked it 
 
 ### Quantitative Evaluation
 
-The testing results printout is available in [test.txt](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/test/test.txt)
+The testing results printout is available in [test.txt](test/test.txt)
 
 Comprehensive testing is hard. There is no existing benchmark. After implementing and validating each new rule, I use an LLM for test ideation (e.g., "Give me edge cases to test user inputs containing characters outside the defined DSL elements.") and then manually determine and verify the expected behavior. This approach helped broaden test coverage to corner cases that I wouldn't have considered. The categorized test suite made it easy to verify that each feature worked in isolation and in combination.
 
@@ -367,7 +375,7 @@ The compiler handles extreme inputs without issues:
 
 ### Qualitative Validation
 
-I output 5 facade examples (json, svg, png) together with image gen visualizations which are available in the [example folder](https://github.com/itingtsai/Facade_Layout_Compiler/tree/main/example).
+I output 5 facade examples (json, svg, png) together with image gen visualizations which are available in the [example folder](example/).
 
 Beyond automated testing, I validated output quality through visual inspection:
 
