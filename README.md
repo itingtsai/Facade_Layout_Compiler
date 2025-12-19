@@ -172,6 +172,16 @@ For environments that don't support SVG, the compiler can produce PNG output via
 **Example Facades:**
 
 Version 1:
+```
+row 1: E E E E E E E E C E E 
+row 2: S S S S S S S S C S S 
+row 3: S S W W S S S W W S S 
+row 4: S S W W S S S W W S S 
+row 5: S S S S S S S S S S S 
+row 6: E 
+row 6: S S D D S S W W W W S
+row 7: S S D D S S W W W W S 
+```
 ![Facade 1](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/facade_1.svg)
 
 Version 2:
