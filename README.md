@@ -304,15 +304,32 @@ I conducted an experiment using an image generation model (Nano Banana) to produ
 The results were correct most of the time. The model understood the general layout but sometimes struggled with precise spatial positioning. This suggests the compiled output could serve as input for generative design, though current models may need additional guidance.
 
 Facade Example 1:
-![SVG output](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/facade_1.svg)
+
+PNG output:
+![PNG output](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/facade_1.png)
+
+Modernist-style:
 ![Modernist-style](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/Modernist-style.png)
+
+Biophilic-style:
 ![Biophilic-style](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/Biophilic-style.png)
+
+Postmodern-style:
 ![Postmodern-style](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/Postmodern-style.png)
 
+
 Facade Example 2:
-![SVG output](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_4/facade_4.svg)
+
+PNG output:
+![PNG output](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_4/facade_4.png)
+
+Bauhaus-style:
 ![Bauhaus-style](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_4/Bauhaus-style.png)
+
+Neo-Futurist-style:
 ![Neo-Futurist-style](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_4/Neo-Futurist-style.png)
+
+Post-and-Beam Modern-style:
 ![Post-and-Beam Modern-style](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_4/Post-and-Beam%20Modern-style.png)
 
 ---
