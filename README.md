@@ -173,12 +173,16 @@ Example Facades:
 
 Version 1:
 ![Facade 1](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/facade_1.svg)
+
 Version 2:
 ![Facade 2](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_2/facade_2.svg)
+
 Version 3:
 ![Facade 3](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_3/facade_3.svg)
+
 Version 4:
 ![Facde 4](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_4/facade_4.svg)
+
 Version 5:
 ![Facade 5](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_5/facade_5.svg)
 
