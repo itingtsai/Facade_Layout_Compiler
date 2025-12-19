@@ -9,12 +9,13 @@ Features:
 - Support for repeat expressions (W*5)
 
 Grammar (EBNF):
-    program         ::= (rule_decl)* row_decl+
-    rule_decl       ::= 'rule' IDENTIFIER ':' rule_value
-    row_decl        ::= 'row' INTEGER ':' cell+
-    cell            ::= SYMBOL | repeat_expr
-    repeat_expr     ::= SYMBOL '*' INTEGER
-    SYMBOL          ::= 'E' | 'W' | 'S' | 'D' | 'C'
+    program     ::= rule_decl* row_decl+
+    rule_decl   ::= 'rule' IDENTIFIER ':' rule_value+
+    rule_value  ::= INTEGER | IDENTIFIER
+    row_decl    ::= 'row' INTEGER ':' cell+
+    cell        ::= SYMBOL | repeat_expr
+    repeat_expr ::= SYMBOL '*' INTEGER
+    SYMBOL      ::= 'E' | 'W' | 'S' | 'D' | 'C'
 
 Example inputs:
     "row 1: E E C E row 2: W W C W row 3: E D D E"
