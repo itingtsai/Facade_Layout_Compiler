@@ -169,7 +169,7 @@ The SVG generator produces a visual representation where each cell is rendered a
 
 For environments that don't support SVG, the compiler can produce PNG output via CairoSVG.
 
-Example Facades:
+**Example Facades:**
 
 Version 1:
 ![Facade 1](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/facade_1.svg)
@@ -303,7 +303,7 @@ I conducted an experiment using an image generation model (Nano Banana) to produ
 
 The results were correct most of the time. The model understood the general layout but sometimes struggled with precise spatial positioning. This suggests the compiled output could serve as input for generative design, though current models may need additional guidance.
 
-Facade Example 1:
+**Facade Example 1:**
 
 PNG output:
 ![PNG output](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/facade_1.png)
@@ -317,8 +317,7 @@ Biophilic-style:
 Postmodern-style:
 ![Postmodern-style](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/Postmodern-style.png)
 
-
-Facade Example 2:
+**Facade Example 2:**
 
 PNG output:
 ![PNG output](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_4/facade_4.png)
