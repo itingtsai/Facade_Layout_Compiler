@@ -48,7 +48,7 @@ row 5: E E E D D E E E
 
 This grid-based representation provides a clear correspondence between source-level specification and spatial layout. The choice of single-character symbols was deliberate: it enables the compact syntax feature (described below) while remaining visually scannable.
 
-(The row numbers aren’t strictly needed right now since the rows could just be inferred by order, but I was thinking that this would keep the language flexible for future extensions where it might be useful to refer to specific rows (e.g., changing row heights or other row-level attributes).)
+The row numbers aren’t strictly needed since the rows could just be inferred by order, but I was thinking that this would keep the language flexible for future extensions where it might be useful to refer to specific rows (e.g., changing row heights or other row-level attributes).
 
 ### Expressiveness and Usability Features
 
@@ -271,7 +271,7 @@ This makes compiler intervention visible without treating it as an error.
 
 ### 4. Error Recovery and Multiple Error Reporting
 
-I implemented basic error recovery so the compiler can report multiple errors in a single pass: the lexer reports invalid characters but continues scanning, and the parser skips to the next `row` keyword after encountering a syntax error.
+I implemented basic error recovery so the compiler can report multiple errors in a single pass: the lexer reports invalid characters but continues scanning, and the parser skips to the next row after encountering a syntax error.
 
 ### 6. Comprehensive Test Coverage
 
@@ -332,10 +332,6 @@ The compiler handles extreme inputs without issues:
 - `E*9999` (large repeat)
 - `E*500` repeated 10 times
 
-### Qualitative Validation
-
-I output 5 facade examples (json, svg, png) together with image gen visualizations which are available in the [example folder](https://github.com/itingtsai/Facade_Layout_Compiler/tree/main/example).
-
 ### Additional Experiment
 
 I conducted an experiment using an image generation model (Nano Banana) to produce photorealistic facade images from compiled layouts. The workflow:
@@ -375,6 +371,10 @@ Neo-Futurist-style:
 
 Post-and-Beam Modern-style:
 ![Post-and-Beam Modern-style](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_4/Post-and-Beam%20Modern-style.png)
+
+### Qualitative Validation
+
+I output 5 facade examples (json, svg, png) together with image gen visualizations which are available in the [example folder](https://github.com/itingtsai/Facade_Layout_Compiler/tree/main/example).
 
 ---
 
