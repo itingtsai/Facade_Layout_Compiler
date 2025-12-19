@@ -171,11 +171,11 @@ For environments that don't support SVG, the compiler can produce PNG output via
 
 Example Facades:
 
-![Facade 1](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/facade_1.svg)
-![Facade 2](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_2/facade_2.svg)
-![Facade 3](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_3/facade_3.svg)
-![Facde 4](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_4/facade_4.svg)
-![Facade 5](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_5/facade_5.svg)
+[Facade 1](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_1/facade_1.svg)
+[Facade 2](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_2/facade_2.svg)
+[Facade 3](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_3/facade_3.svg)
+[Facde 4](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_4/facade_4.svg)
+[Facade 5](https://github.com/itingtsai/Facade_Layout_Compiler/blob/main/example/facade_5/facade_5.svg)
 
 ---
 
