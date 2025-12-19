@@ -288,10 +288,7 @@ The compiler handles extreme inputs without issues:
 
 I output 5 facade examples (json, svg, png) together with image gen visualizations which are available in the [example folder](https://github.com/itingtsai/Facade_Layout_Compiler/tree/main/example).
 
-
----
-
-## Additional Experiment
+### Additional Experiment
 
 I conducted an experiment using an image generation model (Nano Banana) to produce photorealistic facade images from compiled layouts. The workflow:
 
